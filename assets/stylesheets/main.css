@@ -1,0 +1,31 @@
+
+
+.row {
+	min-height: 100px;
+}
+
+.left, .middle, .right {
+	min-height: 100px;
+}
+
+.row.top {
+	margin-top: 100px;
+}
+
+.container.grid, .container.above-grid {
+	max-width: 300px;
+}
+
+.center {
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+
+.middle {
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+}
+
+.container p{
+	padding-top: 40px;
+}
