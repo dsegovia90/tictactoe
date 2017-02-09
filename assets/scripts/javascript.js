@@ -41,21 +41,38 @@ $(document).ready(function() {
 
 	for (var i = 0; i < gridSystem.length; i++) {
 		$(gridSystem[i]).click(function(event) {
+			$("#who-won").html("");
 			$(".btn-selector").attr('disabled', 'enabled');
 
 			if (!clicked[this.id]) {
 				$(this).find('p').html(player);	
 				clicked[this.id] = player;	
+				if(checkWin(clicked)){
+					aiMove();
+					checkWin(clicked);
+				}
 			}else{
 				console.log("Not Allowed!");
 			}
 			console.log(clicked);
-			checkWin(clicked);
 		});
 	}
 
 	function aiMove(){
-		
+		var random = Math.floor(Math.random() * (9 - 0)) + 0;
+		var x = true;
+		while(x){
+			if(clicked[random] === 0){
+				clicked[random] = cpu;
+				console.log("clicked[" + random + "]" + " = " + cpu);
+				$(gridSystem[random]).find('p').html(cpu);
+				x = false;
+			}else{
+				random++; 
+				if (random > 8) {random = 0;}
+				console.log("had to switch cpu choice");
+			}
+		}
 	}
 
 	function checkWin(arr) {
@@ -103,14 +120,17 @@ $(document).ready(function() {
 					console.log("X won!");
 					$("#who-won").html("X Wins!");
 					resetGame();
+					return false;
 				}
 				if (winO >= 3) {
 					$("#who-won").html("O Wins!");
 					console.log("O won!");
 					resetGame();
+					return false;
 				}
 			}
 		}
+		return true;
 	}
 
 	function resetGame (){
