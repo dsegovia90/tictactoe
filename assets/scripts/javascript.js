@@ -46,7 +46,9 @@ $(document).ready(function() {
 	function aiMove(){
 		var random = Math.floor(Math.random() * (9 - 0)) + 0;
 		var x = true;
+		var y = 0;
 		while(x){
+
 			if(clicked[random] === 0){
 				clicked[random] = cpu;
 				console.log("clicked[" + random + "]" + " = " + cpu);
@@ -55,7 +57,13 @@ $(document).ready(function() {
 			}else{
 				random++; 
 				if (random > 8) {random = 0;}
-				console.log("had to switch cpu choice");
+				console.log("had to switch cpu choice from " + (random - 1) + " to " + random);
+			}
+			y++;
+			if(y > 9){
+				x = false;
+				$("#who-won").html("It's a Tie!");
+				resetGame();
 			}
 		}
 	}
