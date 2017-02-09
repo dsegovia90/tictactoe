@@ -13,10 +13,24 @@
 	  <title>TicTacToe | dsego</title>
 	</head>
 	<body>
+
 		<div class="container above-grid">
 			<p id="player-cpu"></p>
 		</div>
+
 		<div class="container grid text-center">
+			<div class="row">
+				<div class="col-xs-12">
+					<p>Choose X or Y.</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<button id="x-button" class="btn btn-default btn-selector">X</button>
+					<button id="o-button" class="btn btn-default btn-selector">O</button>
+				</div>
+			</div>
 
 			<div class="row top">
 				<div id="0" class="col-xs-4 left">
@@ -52,6 +66,9 @@
 				<div id="8" class="col-xs-4 right">
 					<p></p>
 				</div>
+			</div>
+			<div>
+				<h3 id="who-won"></h3>
 			</div>
 			
 		</div>

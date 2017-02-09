@@ -1,6 +1,6 @@
 
 
-.row {
+.row.top, .row.center, .row.bottom {
 	min-height: 100px;
 }
 

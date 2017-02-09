@@ -13,23 +13,37 @@ $(document).ready(function() {
 		}
 	}
 
+	///////// Above will be deleten once AI is working
+
+	var player = "";
+		
+	
+	
 	$("#player-cpu").html("Player -> " + playerOrCpu[0] + " CPU -> " + playerOrCpu[1]);
 
 
 
-	var gridSystem = ["#0", "#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8"]
+	var gridSystem = ["#0", "#1", "#2", "#3", "#4", "#5", "#6", "#7", "#8"];
 	var clicked = [	0, 0, 0, 
 									0, 0, 0, 
-									0, 0, 0]
+									0, 0, 0];
+
+	$(".btn-selector").click(function(event) {
+		player = $(this).html();
+		
+	});
+
 
 	for (var i = 0; i < gridSystem.length; i++) {
 		$(gridSystem[i]).click(function(event) {
-			var alt = alternator();
+			var alt;
+			$(".btn-selector").attr('disabled', 'enabled');
+
 			if (!clicked[this.id]) {
-				$(this).find('p').html(alt);	
+				$(this).find('p').html(alt = alternator());	
 				clicked[this.id] = alt;	
 			}else{
-				console.log("Not Allowed!")
+				console.log("Not Allowed!");
 			}
 			console.log(clicked);
 			checkWin(clicked);
@@ -79,9 +93,11 @@ $(document).ready(function() {
 
 				if (winX >= 3) {
 					console.log("X won!");
+					$("#who-won").html("X Wins!");
 					resetGame();
 				}
 				if (winO >= 3) {
+					$("#who-won").html("O Wins!");
 					console.log("O won!");
 					resetGame();
 				}
@@ -96,6 +112,7 @@ $(document).ready(function() {
 		clicked = [ 0,0,0,
 								0,0,0,
 								0,0,0];
+		$(".btn-selector").removeAttr('disabled');
 	}
 
 });
