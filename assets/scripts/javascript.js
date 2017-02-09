@@ -15,11 +15,11 @@ $(document).ready(function() {
 
 	///////// Above will be deleten once AI is working
 
-	var player = "";
-		
+	var player = "X";
+	var cpu = "O";
 	
 	
-	$("#player-cpu").html("Player -> " + playerOrCpu[0] + " CPU -> " + playerOrCpu[1]);
+	$("#player-cpu").html("Player -> " + player + " CPU -> " + cpu);
 
 
 
@@ -30,7 +30,12 @@ $(document).ready(function() {
 
 	$(".btn-selector").click(function(event) {
 		player = $(this).html();
-		
+		if(player === "X"){
+			cpu = "O";
+		}else{
+			cpu = "X";
+		}
+		$("#player-cpu").html("Player -> " + player + " CPU -> " + cpu)
 	});
 
 
