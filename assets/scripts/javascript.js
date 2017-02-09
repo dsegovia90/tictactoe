@@ -1,19 +1,4 @@
 $(document).ready(function() {
-	
- var playerOrCpu = ["X", "O"];
-
- var altern = true;
-	function alternator(){
-		if(altern){
-			altern = false;
-			return playerOrCpu[0];
-		}else{
-			altern = true;
-			return playerOrCpu[1];
-		}
-	}
-
-	///////// Above will be deleten once AI is working
 
 	var player = "X";
 	var cpu = "O";
