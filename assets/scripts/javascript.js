@@ -41,18 +41,21 @@ $(document).ready(function() {
 
 	for (var i = 0; i < gridSystem.length; i++) {
 		$(gridSystem[i]).click(function(event) {
-			var alt;
 			$(".btn-selector").attr('disabled', 'enabled');
 
 			if (!clicked[this.id]) {
-				$(this).find('p').html(alt = alternator());	
-				clicked[this.id] = alt;	
+				$(this).find('p').html(player);	
+				clicked[this.id] = player;	
 			}else{
 				console.log("Not Allowed!");
 			}
 			console.log(clicked);
 			checkWin(clicked);
 		});
+	}
+
+	function aiMove(){
+		
 	}
 
 	function checkWin(arr) {
